@@ -3,6 +3,7 @@ import SpeechToText from "./components/speechToText";
 import Gemini from "./components/gemini";
 import TextToSpeech from "./components/textToSpeech";
 import { useEffect, useState } from "react";
+import WebcamCapture from "./webcapture";
 
 function App() {
   const [chatHistory, setChatHistory] = useState([]);
@@ -27,6 +28,7 @@ function App() {
       {/* writes a response to the transcription */}
       <Gemini transcriptions={transcriptions} onUpdate={handleChatUpdate} />
       <TextToSpeech chat={chatHistory} />
+      <WebcamCapture />
     </div>
   );
 }
