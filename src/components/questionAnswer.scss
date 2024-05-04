@@ -1,0 +1,34 @@
+.video-and-controls {
+  width: 60vw;
+
+  .controls {
+    width: 100%;
+    height: 60px;
+    background-color: #c3e3f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px;
+
+    .record-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      border: 1px solid black;
+      padding: 7px 25px;
+      background: #b7e0b7;
+    }
+
+    .next-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      border: 1px solid black;
+      padding: 7px 25px;
+      background: #f8da95;
+    }
+  }
+}

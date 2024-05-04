@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import WebcamCapture from "../webcapture";
+import { useState } from "react";
 import Evaluate from "../components/evaluate";
 import QuestionAndAnswer from "../components/questionAnswer";
 import Feedback from "../components/feedback";
@@ -46,13 +45,13 @@ export default function Interview() {
         onFeedbackUpdate={handleFeedbackUpdate}
         onErrorEvaluation={setErrors}
       />
-      <Feedback chat={feedback} />
       <QuestionAndAnswer
         question={questions[currQIndex]}
         onHandleNextQuestion={handleNextQuestion}
         onTranscriptionsChange={handleTranscriptionsChange}
         errors={errors}
       />
+      <Feedback chat={feedback} />
     </div>
   );
 }

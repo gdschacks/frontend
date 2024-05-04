@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import * as faceapi from "face-api.js";
+import "./webcapture.scss";
 
 function WebcamCapture() {
   const videoRef = useRef();
@@ -69,7 +70,7 @@ function WebcamCapture() {
 
   return (
     <div>
-      <video ref={videoRef} autoPlay muted width="720" height="560" />
+      <video ref={videoRef} autoPlay muted className="webcam-video" />
     </div>
   );
 }
