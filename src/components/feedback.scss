@@ -1,0 +1,51 @@
+.feedback {
+  position: absolute;
+  right: 0;
+  top: 70px;
+  width: 30%;
+  margin: 20px;
+
+  padding: 20px 20px 50px 20px;
+  background-color: #c2e2f0;
+  border-radius: 20px;
+  p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    padding-bottom: 20px;
+    span {
+      font-weight: 600;
+    }
+    .red_underline {
+      color: red;
+      text-decoration: underline;
+    }
+  }
+  .white_box {
+    border-radius: 20px;
+    height: 22vh;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    .tag_box {
+      display: flex;
+      width: 100%;
+      gap: 10px;
+    }
+    p {
+      margin-top: 20px;
+    }
+  }
+  .yellow_box {
+    background-color: #f8da95;
+
+    width: 100%;
+    border-radius: 20px;
+
+    p {
+      padding: 20px 0px;
+      text-align: center;
+      align-items: center;
+    }
+  }
+}
