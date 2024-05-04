@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import WebcamCapture from "../webcapture";
 import Evaluate from "../components/evaluate";
-import QuestionAndAnswer from "../components/interview";
+import QuestionAndAnswer from "../components/questionAnswer";
 import Feedback from "../components/feedback";
 
 export default function Interview() {
