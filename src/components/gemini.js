@@ -1,42 +1,42 @@
 import { useEffect, useState } from "react";
 
-const Gemini = ({ onUpdate, transcriptions }) => {
+const Gemini = ({ onUpdate, answers }) => {
   const [chatHistory, setChatHistory] = useState([]);
 
   useEffect(() => {
-    console.log(transcriptions)
-    if (transcriptions.length > 0) {
-      const lastTranscriptionString = transcriptions
-        .join(" ")
-        .replace(/\n/g, ".");
-      console.log(lastTranscriptionString);
-      sendResponse(lastTranscriptionString);
+    console.log(answers);
+    if (answers.length > 0) {
+      const answer = answers.join(" ").replace(/\n/g, ".");
+      console.log("User message", answer);
+      sendResponse(answer);
     }
-  }, [transcriptions]);
+  }, [answers]);
 
-  const sendResponse = async (transcription) => {
+  const sendResponse = async (answer) => {
     try {
       // console.log(chatHistory);
       const options = {
         method: "POST",
-        body: JSON.stringify({ history: chatHistory, message: transcription }),
+        body: JSON.stringify({ history: chatHistory, message: answer }),
         headers: {
           "Content-Type": "application/json",
         },
       };
       const response = await fetch("http://localhost:8080/gemini", options);
       const data = await response.text();
+      console.log("gemini response", data);
       const newChatHistory = [
         ...chatHistory,
         {
           role: "user",
-          parts: [{ text: transcription }],
+          parts: [{ text: answer }],
         },
         {
           role: "model",
           parts: [{ text: data }],
         },
       ];
+      console.log(newChatHistory);
       setChatHistory(newChatHistory);
       onUpdate(newChatHistory);
     } catch (error) {
@@ -44,17 +44,7 @@ const Gemini = ({ onUpdate, transcriptions }) => {
     }
   };
 
-  return (
-    <div>
-      {/* {chatHistory.map((chat, index) => (
-        <div key={index}>
-          <p>
-            {chat.role}: {chat.parts[0].text}
-          </p>
-        </div>
-      ))} */}
-    </div>
-  );
+  return <></>;
 };
 
 export default Gemini;
