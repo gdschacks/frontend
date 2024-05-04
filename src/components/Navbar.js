@@ -20,6 +20,11 @@ export default function Navbar() {
                 Custom Questions
               </a>
             </li>
+            <li>
+              <a href={`/applyjobs`} class="text-black ">
+                Jobs
+              </a>
+            </li>
           </ul>
         </div>
       </div>

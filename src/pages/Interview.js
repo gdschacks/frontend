@@ -2,6 +2,7 @@ import { useState } from "react";
 import Evaluate from "../components/evaluate";
 import QuestionAndAnswer from "../components/questionAnswer";
 import Feedback from "../components/feedback";
+import Navbar from "../components/Navbar";
 
 export default function Interview() {
   const [chatHistory, setChatHistory] = useState([]);
@@ -33,6 +34,7 @@ export default function Interview() {
 
   return (
     <div className="App">
+      <Navbar />
       {/* gets transcriptions */}
       {/* <SpeechToText onTranscriptionsChange={handleTranscriptionsChange} /> */}
       {/* <TextToSpeech chat={chatHistory} /> */}
