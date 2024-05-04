@@ -1,4 +1,3 @@
-import "./App.css";
 import Interview from "./pages/Interview";
 import Landing from "./pages/Landing";
 import CustomQuestions from "./pages/CustomQuestions";
