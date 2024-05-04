@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 
 export default function CustomQuestions() {
   const [inputFields, setInputFields] = useState([{ value: "" }]);
@@ -14,19 +15,23 @@ export default function CustomQuestions() {
     setInputFields(values);
   };
 
-  const handleSend = () => {
-    
-  }
+  const handleSend = () => {};
 
   return (
     <div>
       <Navbar />
-      <div className="p-4 mt-12">
+      <div className="p-4">
+        <Header
+          title="Custom Questions"
+          subtitle="Add your own questions to be tested on"
+        />
+      </div>
+      <div className="p-4 mt-8">
         {inputFields.map((inputField, index) => (
           <div key={index} className="input-group mb-4">
             <input
               type="text"
-              className="placeholder:italic placeholder:text-slate-400 border rounded-lg px-4 py-2 w-full h-16"
+              className="placeholder:italic placeholder:text-slate-400 border-2 rounded-lg px-4 py-2 w-full h-16"
               placeholder="Type your question..."
               value={inputField.value}
               onChange={(event) => handleInputChange(index, event)}

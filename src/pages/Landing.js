@@ -7,11 +7,18 @@ import KPMG from "../assets/logos/kpmg.png";
 import EY from "../assets/logos/ey.png";
 import Deloitte from "../assets/logos/deloitte.png";
 import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 
 export default function Landing() {
   return (
     <div>
       <Navbar />
+      <div className="p-4">
+        <Header
+          title="Ready Made Questions"
+          subtitle="Prep for your dream company"
+        />
+      </div>
       <div className="landing">
         <div className="box_container">
           <div className="box">
