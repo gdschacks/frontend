@@ -1,0 +1,24 @@
+.header {
+  margin-top: 40px;
+  h1 {
+    font-weight: 600;
+    font-size: 35px;
+  }
+
+  h6 {
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.25;
+    letter-spacing: 0.02857em;
+    font-weight: 400;
+    font-size: 18px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+  }
+}
+
+@media only screen and (min-width: 978px) {
+  // for desktop
+  .header {
+    margin-top: 20px;
+  }
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { io } from "socket.io-client";
 
-const Interview = ({
+const QuestionAndAnswer = ({
   question,
   onTranscriptionsChange,
   onHandleNextQuestion,
@@ -69,4 +69,4 @@ const Interview = ({
   );
 };
 
-export default Interview;
+export default QuestionAndAnswer;
