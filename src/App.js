@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import SpeechToText from "./components/speechToText";
+import Gemini from "./components/gemini";
+import TextToSpeech from "./components/textToSpeech";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [chatHistory, setChatHistory] = useState([]);
+  const [transcriptions, setTranscriptions] = useState([]);
+
+  const handleTranscriptionsChange = (newTranscriptions) => {
+    setTranscriptions(newTranscriptions);
+  };
+
+  const handleChatUpdate = (newChatHistory) => {
+    setChatHistory(newChatHistory);
+  };
+
+  // useEffect(() => {
+  //   console.log(transcriptions);
+  // }, [transcriptions]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* gets transcriptions */}
+      <SpeechToText onTranscriptionsChange={handleTranscriptionsChange} />
+      {/* writes a response to the transcription */}
+      <Gemini transcriptions={transcriptions} onUpdate={handleChatUpdate} />
+      <TextToSpeech chat={chatHistory} />
     </div>
   );
 }
