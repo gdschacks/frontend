@@ -74,7 +74,6 @@ export default function Landing() {
           <div className="box_2">
             <a href="/customquestions">
               <div className="company">
-                {/* fix button */}
                 <div className="text_container">
                   <p>Make your own questions</p>
                 </div>
