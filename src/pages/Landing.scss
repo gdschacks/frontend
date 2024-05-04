@@ -1,0 +1,41 @@
+.landing {
+  height: 90vh;
+  margin: 20px;
+  padding: 20px;
+  background-color: #c2e2f0;
+  border-radius: 20px;
+
+  .box_container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .box {
+    width: 50%;
+    height: 40vh;
+    background-color: white;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    .company {
+      display: flex;
+      background-color: #c2e2f0;
+      margin: 5px;
+      padding: 5px;
+      border-radius: 15px;
+      align-items: center;
+      img {
+        height: 50px;
+        margin: 5px;
+      }
+      .text_container {
+        width: 100%;
+        text-align: center;
+        // align-items: center;
+      }
+    }
+  }
+}
