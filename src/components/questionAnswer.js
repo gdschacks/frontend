@@ -1,15 +1,23 @@
 import { useEffect, useState, useRef } from "react";
 import { io } from "socket.io-client";
+import WebcamCapture from "./webcapture";
+import { EMOTIONS } from "../constant";
+import "./questionAnswer.scss";
 
 const QuestionAndAnswer = ({
+  isLastQuestion,
   question,
   onTranscriptionsChange,
+  onHandleEndInterview,
   onHandleNextQuestion,
   errors,
 }) => {
   const [transcriptions, setTranscriptions] = useState([]);
   const [isRecording, setIsRecording] = useState(false);
   const socketRef = useRef(null);
+  const [emotion, setEmotion] = useState("neutral");
+
+  console.log(emotion);
 
   useEffect(() => {
     if (!socketRef.current) {
@@ -59,14 +67,28 @@ const QuestionAndAnswer = ({
   };
 
   return (
-    <div>
-      <p>{question}</p>
-      <button onClick={onHandleNextQuestion}>Next</button>
-      <button onClick={toggleTranscription}>
-        {isRecording ? "Stop Transcription" : "Start Transcription"}
-      </button>
+    <div className="video-and-controls">
+      <WebcamCapture handleChangeEmotion={setEmotion} />
+      <div className="controls">
+        <p>{`Detected Emotion: ${EMOTIONS[emotion]} ${
+          emotion.charAt(0).toUpperCase() + emotion.slice(1)
+        }`}</p>
+        <button className="record-button" onClick={toggleTranscription}>
+          {`🎤 ${isRecording ? "Stop Recording" : "Start Recording"}`}
+        </button>
+        <button
+          className="next-button"
+          onClick={isLastQuestion ? onHandleEndInterview : onHandleNextQuestion}
+        >
+          {`⏭️ ${isLastQuestion ? "End" : "Next"}`}
+        </button>
+      </div>
     </div>
   );
 };
 
 export default QuestionAndAnswer;
+
+{
+  /* <p>{question}</p> */
+}

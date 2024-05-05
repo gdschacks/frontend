@@ -1,25 +1,29 @@
-import { useEffect, useState } from "react";
-import WebcamCapture from "../webcapture";
+import { useState } from "react";
 import Evaluate from "../components/evaluate";
 import QuestionAndAnswer from "../components/questionAnswer";
 import Feedback from "../components/feedback";
 import Navbar from "../components/Navbar";
-import { useLocation } from "react-router-dom";
+import "./Interview.scss";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Interview() {
   const location = useLocation();
+  const navigate = useNavigate();
   const receivedState = location.state;
-  console.log(receivedState)
+  console.log(receivedState);
   const [chatHistory, setChatHistory] = useState([]);
   const [currQIndex, setCurrQIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
+  const [userResponse, setUserResponse] = useState("");
   const [feedback, setFeedback] = useState("");
-  const [errors, setErrors] = useState({});
-  const [questions, setQuestions] = useState([
-    "Hello, tell me about yourself?",
-    "Tell me about a time you solved a conflict.",
-  ]);
-  const [company, setCompany] = useState("Google");
+  const [errors, setErrors] = useState({
+    grammar: false,
+    tense: false,
+    repetition: false,
+    stutters: 0,
+  });
+  const [questions, setQuestions] = useState(receivedState.questions);
+  const [company, setCompany] = useState(receivedState.name);
 
   const handleTranscriptionsChange = (newAnswer) => {
     setAnswers(newAnswer);
@@ -37,8 +41,12 @@ export default function Interview() {
     setCurrQIndex(currQIndex + 1);
   };
 
+  const handleEndInterview = () => {
+    navigate("/");
+  };
+
   return (
-    <div className="App">
+    <div className="interview-container">
       <Navbar />
       {/* gets transcriptions */}
       {/* <SpeechToText onTranscriptionsChange={handleTranscriptionsChange} /> */}
@@ -51,14 +59,24 @@ export default function Interview() {
         onUpdate={handleChatUpdate}
         onFeedbackUpdate={handleFeedbackUpdate}
         onErrorEvaluation={setErrors}
+        onFormatUserResponse={setUserResponse}
       />
-      <Feedback chat={feedback} />
-      <QuestionAndAnswer
-        question={questions[currQIndex]}
-        onHandleNextQuestion={handleNextQuestion}
-        onTranscriptionsChange={handleTranscriptionsChange}
-        errors={errors}
-      />
+      <div className="main-container">
+        <QuestionAndAnswer
+          isLastQuestion={currQIndex === questions.length - 1}
+          question={questions[currQIndex]}
+          onHandleNextQuestion={handleNextQuestion}
+          onHandleEndInterview={handleEndInterview}
+          onTranscriptionsChange={handleTranscriptionsChange}
+          errors={errors}
+        />
+        <Feedback
+          question={questions[currQIndex]}
+          chat={feedback}
+          errors={errors}
+          originalResponse={userResponse}
+        />
+      </div>
     </div>
   );
 }

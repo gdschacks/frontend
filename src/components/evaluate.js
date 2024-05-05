@@ -8,6 +8,7 @@ const Evaluate = ({
   onUpdate,
   onFeedbackUpdate,
   onErrorEvaluation,
+  onFormatUserResponse,
 }) => {
   const [chatHistory, setChatHistory] = useState([]);
 
@@ -24,6 +25,7 @@ const Evaluate = ({
     if (answers.length > 0) {
       const answer = answers.join(" ").replace(/\n/g, ".");
       console.log("User message", answer);
+      onFormatUserResponse(answer);
       console.log("prompt", generateFeedbackPrompt(answer));
       talkToGemini(answer);
       console.log("error prompt", generateErrorCheckPrompt(answer));
