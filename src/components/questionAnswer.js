@@ -3,6 +3,7 @@ import { io } from "socket.io-client";
 import WebcamCapture from "./webcapture";
 import { EMOTIONS } from "../constant";
 import "./questionAnswer.scss";
+import Goose from "../assets/goose.png";
 
 const QuestionAndAnswer = ({
   isLastQuestion,
@@ -80,6 +81,17 @@ const QuestionAndAnswer = ({
         >
           {`⏭️ ${isLastQuestion ? "End" : "Next"}`}
         </button>
+        <div className="goose_container">
+          <div className="dialogue-desktop">
+            <img className="goose" src={Goose} alt="Goose" />
+            <div className="dialogue-bubble">
+              <p>
+                Welcome to QuackPrep!
+                <br /> Choose a company to get started!
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
