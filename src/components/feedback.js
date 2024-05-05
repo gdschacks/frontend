@@ -70,7 +70,8 @@ const Feedback = ({ chat }) => {
           </div>
         );
       })} */}
-      {chat.length && <p>{chat}</p>}
+      {chat.length ? <p>{chat}</p> : null}
+     
     </div>
   );
 };
