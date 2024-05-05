@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
+import { Link } from "react-router-dom";
 
 export default function CustomQuestions() {
-  const [inputFields, setInputFields] = useState([{ value: "" }]);
+  const [inputFields, setInputFields] = useState(["Tell me about yourself", "Why do you want to work at our company?", ""]);
 
   const handleAddInput = () => {
-    setInputFields([...inputFields, { value: "" }]);
+    setInputFields([...inputFields, ""]);
   };
 
   const handleInputChange = (index, event) => {
     const values = [...inputFields];
-    values[index].value = event.target.value;
+    values[index] = event.target.value;
     setInputFields(values);
   };
-
-  const handleSend = () => {};
 
   return (
     <div>
@@ -33,7 +32,7 @@ export default function CustomQuestions() {
               type="text"
               className="placeholder:italic placeholder:text-slate-400 border-2 rounded-lg px-4 py-2 w-full h-16"
               placeholder="Type your question..."
-              value={inputField.value}
+              value={inputField}
               onChange={(event) => handleInputChange(index, event)}
             />
           </div>
@@ -45,8 +44,10 @@ export default function CustomQuestions() {
           >
             Add Another Question
           </button>
-          <button className="bg-customblue hover:bg-blue-300 text-black py-2 px-4 rounded mx-2">
-            Send to Mr Goose
+          <button
+            className="bg-customblue hover:bg-blue-300 text-black py-2 px-4 rounded mx-2"
+          >
+            <Link to="/interview" state={inputFields}>Send to Mr Goose</Link>
           </button>
         </div>
       </div>

@@ -1,0 +1,66 @@
+{
+  "Google": [
+    "Tell me about yourself.",
+    "Why do you want to work at Google?",
+    "What do you do when you're not able to meet a deadline?",
+    "What is your favorite Google product, and how would you improve it?",
+    "What sorting algorithms do you know and which situations are they best suited for?"
+  ],
+  "GeeksForGeeks": [
+    "Tell me about yourself.",
+    "Why do you want to work at GeeksForGeeks?",
+    "Describe a situation where you had to work closely with someone whose personality was very different from yours.",
+    "Describe a time when you had to lead a team under tight deadlines. What was your approach and what was the outcome?",
+    "Give an example of an innovative solution you devised to solve a problem."
+  ],
+  "echo3D": [
+    "Tell me about yourself.",
+    "Why do you want to work at echo3D?",
+    "Describe a situation where you had to work closely with someone whose personality was very different from yours.",
+    "Describe a time when you had to lead a team under tight deadlines. What was your approach and what was the outcome?",
+    "Give an example of an innovative solution you devised to solve a problem."
+  ],
+
+  "KPMG": [
+    "Tell me about yourself.",
+    "Why do you want to work at KPMG?",
+    "Our client is a major retailer who has seen a decline in sales over the past two quarters. What would be your approach to identifying the problem and proposing a solution?",
+    "If you were assigned to a client in an industry you are unfamiliar with, how would you prepare for your first meeting?",
+    "Can you explain the difference between cash flow and profit?"
+  ],
+  "EY": [
+    "Tell me about yourself.",
+    "Why do you want to work at EY?",
+    "Our client is a major retailer who has seen a decline in sales over the past two quarters. What would be your approach to identifying the problem and proposing a solution?",
+    "If you were assigned to a client in an industry you are unfamiliar with, how would you prepare for your first meeting?",
+    "Can you explain the difference between cash flow and profit?"
+  ],
+  "Deloitte": [
+    "Tell me about yourself.",
+    "Why do you want to work at Deloitte?",
+    "Our client is a major retailer who has seen a decline in sales over the past two quarters. What would be your approach to identifying the problem and proposing a solution?",
+    "If you were assigned to a client in an industry you are unfamiliar with, how would you prepare for your first meeting?",
+    "Can you explain the difference between cash flow and profit?"
+  ],
+  "CIBC": [
+    "Tell me about yourself.",
+    "Why do you want to work at CIBC?",
+    "Can you describe the difference between a balance sheet and an income statement?",
+    "Imagine a client has multiple debts and is seeking advice on debt consolidation. How would you advise them?",
+    "How would you introduce a new banking product to a longstanding client?"
+  ],
+  "TD": [
+    "Tell me about yourself.",
+    "Why do you want to work at TD?",
+    "Can you describe the difference between a balance sheet and an income statement?",
+    "Imagine a client has multiple debts and is seeking advice on debt consolidation. How would you advise them?",
+    "How would you introduce a new banking product to a longstanding client?"
+  ],
+  "ScotiaBank": [
+    "Tell me about yourself.",
+    "Why do you want to work at ScotiaBank?",
+    "Can you describe the difference between a balance sheet and an income statement?",
+    "Imagine a client has multiple debts and is seeking advice on debt consolidation. How would you advise them?",
+    "How would you introduce a new banking product to a longstanding client?"
+  ]
+}

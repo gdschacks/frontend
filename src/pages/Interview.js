@@ -4,8 +4,12 @@ import QuestionAndAnswer from "../components/questionAnswer";
 import Feedback from "../components/feedback";
 import Navbar from "../components/Navbar";
 import "./Interview.scss";
+import { useLocation } from "react-router-dom";
 
 export default function Interview() {
+  const location = useLocation();
+  const receivedState = location.state;
+  console.log(receivedState);
   const [chatHistory, setChatHistory] = useState([]);
   const [currQIndex, setCurrQIndex] = useState(0);
   const [answers, setAnswers] = useState([]);

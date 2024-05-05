@@ -1,4 +1,5 @@
 import "./Landing.scss";
+import questions from "../questions.json";
 // company logos
 import Google from "../assets/logos/google.png";
 import GeeksforGeeks from "../assets/logos/GeeksForGeeks.png";
@@ -13,6 +14,7 @@ import TD from "../assets/logos/TD.png";
 import Scotiabank from "../assets/logos/scotiabank.png";
 
 import Goose from "../assets/goose.png";
+import { Link } from "react-router-dom";
 
 export default function Landing() {
   return (
@@ -32,19 +34,25 @@ export default function Landing() {
             <div className="company">
               <img src={Google} alt="Google" />
               <div className="text_container">
-                <p>Google</p>
+                <Link to="/interview" state={questions.Google}>
+                  Google
+                </Link>
               </div>
             </div>
             <div className="company">
               <img src={GeeksforGeeks} alt="GeeksforGeeks" />
               <div className="text_container">
-                <p>GeeksforGeeks</p>
+                <Link to="/interview" state={questions.GeeksForGeeks}>
+                  GeeksForGeeks
+                </Link>
               </div>
             </div>
             <div className="company">
               <img src={echo3D} alt="echo3D" />
               <div className="text_container">
-                <p>echo3D</p>
+                <Link to="/interview" state={questions.echo3D}>
+                  echo3D
+                </Link>
               </div>
             </div>
           </div>
@@ -53,19 +61,25 @@ export default function Landing() {
             <div className="company">
               <img src={KPMG} alt="KPMG" />
               <div className="text_container">
-                <p>KPMG</p>
+                <Link to="/interview" state={questions.KPMG}>
+                  KPMG
+                </Link>
               </div>
             </div>
             <div className="company">
               <img src={EY} alt="EY" />
               <div className="text_container">
-                <p>Ernst & Young</p>
+                <Link to="/interview" state={questions.EY}>
+                  Ernst & Young
+                </Link>
               </div>
             </div>
             <div className="company">
               <img src={Deloitte} alt="Deloitte" />
               <div className="text_container">
-                <p>Deloitte</p>
+                <Link to="/interview" state={questions.Deloitte}>
+                  Deloitte
+                </Link>
               </div>
             </div>
           </div>
@@ -96,19 +110,25 @@ export default function Landing() {
             <div className="company">
               <img src={CIBC} alt="CIBC" />
               <div className="text_container">
-                <p>CIBC</p>
+                <Link to="/interview" state={questions.CIBC}>
+                  CIBC
+                </Link>
               </div>
             </div>
             <div className="company">
               <img src={TD} alt="TD" />
               <div className="text_container">
-                <p>TD</p>
+                <Link to="/interview" state={questions.TD}>
+                  TD
+                </Link>
               </div>
             </div>
             <div className="company">
               <img src={Scotiabank} alt="Scotiabank" />
               <div className="text_container">
-                <p>Scotiabank</p>
+                <Link to="/interview" state={questions.ScotiaBank}>
+                  Scotiabank
+                </Link>
               </div>
             </div>
           </div>
