@@ -4,6 +4,7 @@ import WebcamCapture from "./webcapture";
 import { EMOTIONS } from "../constant";
 import "./questionAnswer.scss";
 import Goose from "../assets/goose.png";
+import Alert from "@mui/material/Alert";
 
 const QuestionAndAnswer = ({
   isLastQuestion,
@@ -72,6 +73,12 @@ const QuestionAndAnswer = ({
         <p>{`Detected Emotion: ${EMOTIONS[emotion]} ${
           emotion.charAt(0).toUpperCase() + emotion.slice(1)
         }`}</p>
+        {emotion.charAt(0).toUpperCase() + emotion.slice(1) !== "Happy" && emotion.charAt(0).toUpperCase() + emotion.slice(1) !== "Neutral" && (
+          <div className="alert">
+            <Alert severity="warning">Make sure to smile!</Alert>
+          </div>
+        )}
+
         <button className="record-button" onClick={toggleTranscription}>
           {`🎤 ${isRecording ? "Stop Recording" : "Start Recording"}`}
         </button>
