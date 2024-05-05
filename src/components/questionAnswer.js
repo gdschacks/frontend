@@ -85,10 +85,7 @@ const QuestionAndAnswer = ({
           <div className="dialogue-desktop">
             <img className="goose" src={Goose} alt="Goose" />
             <div className="dialogue-bubble">
-              <p>
-                Welcome to QuackPrep!
-                <br /> Choose a company to get started!
-              </p>
+              <p>{question}</p>
             </div>
           </div>
         </div>

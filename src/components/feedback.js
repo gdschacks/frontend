@@ -63,9 +63,9 @@ const Feedback = ({ chat, question, errors, originalResponse }) => {
           <p>
             <span>Improved Response:</span> {chat}
           </p>
-          <p>
+          {/* <p>
             <span>Original Response:</span> {originalResponse}
-          </p>
+          </p> */}
         </div>
       ) : (
         <div className="loading">
