@@ -34,7 +34,13 @@ export default function Landing() {
             <div className="company">
               <img src={Google} alt="Google" />
               <div className="text_container">
-                <Link to="/interview" state={questions.Google}>
+                <Link
+                  to="/interview"
+                  state={{
+                    name: "Google",
+                    questions: questions.Google,
+                  }}
+                >
                   Google
                 </Link>
               </div>
@@ -42,7 +48,13 @@ export default function Landing() {
             <div className="company">
               <img src={GeeksforGeeks} alt="GeeksforGeeks" />
               <div className="text_container">
-                <Link to="/interview" state={questions.GeeksForGeeks}>
+                <Link
+                  to="/interview"
+                  state={{
+                    name: "GeeksForGeeks",
+                    questions: questions.GeeksForGeeks,
+                  }}
+                >
                   GeeksForGeeks
                 </Link>
               </div>
@@ -50,7 +62,13 @@ export default function Landing() {
             <div className="company">
               <img src={echo3D} alt="echo3D" />
               <div className="text_container">
-                <Link to="/interview" state={questions.echo3D}>
+                <Link
+                  to="/interview"
+                  state={{
+                    name: "echo3D",
+                    questions: questions.echo3D,
+                  }}
+                >
                   echo3D
                 </Link>
               </div>
@@ -61,7 +79,13 @@ export default function Landing() {
             <div className="company">
               <img src={KPMG} alt="KPMG" />
               <div className="text_container">
-                <Link to="/interview" state={questions.KPMG}>
+                <Link
+                  to="/interview"
+                  state={{
+                    name: "KPMG",
+                    questions: questions.KPMG,
+                  }}
+                >
                   KPMG
                 </Link>
               </div>
@@ -69,7 +93,13 @@ export default function Landing() {
             <div className="company">
               <img src={EY} alt="EY" />
               <div className="text_container">
-                <Link to="/interview" state={questions.EY}>
+                <Link
+                  to="/interview"
+                  state={{
+                    name: "EY",
+                    questions: questions.EY,
+                  }}
+                >
                   Ernst & Young
                 </Link>
               </div>
@@ -77,7 +107,13 @@ export default function Landing() {
             <div className="company">
               <img src={Deloitte} alt="Deloitte" />
               <div className="text_container">
-                <Link to="/interview" state={questions.Deloitte}>
+                <Link
+                  to="/interview"
+                  state={{
+                    name: "Deloitte",
+                    questions: questions.Deloitte,
+                  }}
+                >
                   Deloitte
                 </Link>
               </div>
@@ -110,7 +146,13 @@ export default function Landing() {
             <div className="company">
               <img src={CIBC} alt="CIBC" />
               <div className="text_container">
-                <Link to="/interview" state={questions.CIBC}>
+                <Link
+                  to="/interview"
+                  state={{
+                    name: "CIBC",
+                    questions: questions.CIBC,
+                  }}
+                >
                   CIBC
                 </Link>
               </div>
@@ -118,7 +160,13 @@ export default function Landing() {
             <div className="company">
               <img src={TD} alt="TD" />
               <div className="text_container">
-                <Link to="/interview" state={questions.TD}>
+                <Link
+                  to="/interview"
+                  state={{
+                    name: "TD",
+                    questions: questions.TD,
+                  }}
+                >
                   TD
                 </Link>
               </div>
@@ -126,7 +174,13 @@ export default function Landing() {
             <div className="company">
               <img src={Scotiabank} alt="Scotiabank" />
               <div className="text_container">
-                <Link to="/interview" state={questions.ScotiaBank}>
+                <Link
+                  to="/interview"
+                  state={{
+                    name: "Scotiabank",
+                    questions: questions.ScotiaBank,
+                  }}
+                >
                   Scotiabank
                 </Link>
               </div>

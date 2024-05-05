@@ -4,7 +4,11 @@ import Header from "../components/Header";
 import { Link } from "react-router-dom";
 
 export default function CustomQuestions() {
-  const [inputFields, setInputFields] = useState(["Tell me about yourself", "Why do you want to work at our company?", ""]);
+  const [inputFields, setInputFields] = useState([
+    "Tell me about yourself",
+    "Why do you want to work at our company?",
+    "",
+  ]);
 
   const handleAddInput = () => {
     setInputFields([...inputFields, ""]);
@@ -44,10 +48,16 @@ export default function CustomQuestions() {
           >
             Add Another Question
           </button>
-          <button
-            className="bg-customblue hover:bg-blue-300 text-black py-2 px-4 rounded mx-2"
-          >
-            <Link to="/interview" state={inputFields}>Send to Mr Goose</Link>
+          <button className="bg-customblue hover:bg-blue-300 text-black py-2 px-4 rounded mx-2">
+            <Link
+              to="/interview"
+              state={{
+                name: "A generic company",
+                questions: inputFields,
+              }}
+            >
+              Send to Mr Goose
+            </Link>
           </button>
         </div>
       </div>

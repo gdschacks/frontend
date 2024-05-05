@@ -4,10 +4,11 @@ import QuestionAndAnswer from "../components/questionAnswer";
 import Feedback from "../components/feedback";
 import Navbar from "../components/Navbar";
 import "./Interview.scss";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Interview() {
   const location = useLocation();
+  const navigate = useNavigate();
   const receivedState = location.state;
   console.log(receivedState);
   const [chatHistory, setChatHistory] = useState([]);
@@ -21,11 +22,8 @@ export default function Interview() {
     repetition: false,
     stutters: 0,
   });
-  const [questions, setQuestions] = useState([
-    "Hello, tell me about yourself?",
-    "Tell me about a time you solved a conflict.",
-  ]);
-  const [company, setCompany] = useState("Google");
+  const [questions, setQuestions] = useState(receivedState.questions);
+  const [company, setCompany] = useState(receivedState.name);
 
   const handleTranscriptionsChange = (newAnswer) => {
     setAnswers(newAnswer);
@@ -41,6 +39,10 @@ export default function Interview() {
 
   const handleNextQuestion = () => {
     setCurrQIndex(currQIndex + 1);
+  };
+
+  const handleEndInterview = () => {
+    navigate("/");
   };
 
   return (
@@ -61,8 +63,10 @@ export default function Interview() {
       />
       <div className="main-container">
         <QuestionAndAnswer
+          isLastQuestion={currQIndex === questions.length - 1}
           question={questions[currQIndex]}
           onHandleNextQuestion={handleNextQuestion}
+          onHandleEndInterview={handleEndInterview}
           onTranscriptionsChange={handleTranscriptionsChange}
           errors={errors}
         />

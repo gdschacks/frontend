@@ -5,8 +5,10 @@ import { EMOTIONS } from "../constant";
 import "./questionAnswer.scss";
 
 const QuestionAndAnswer = ({
+  isLastQuestion,
   question,
   onTranscriptionsChange,
+  onHandleEndInterview,
   onHandleNextQuestion,
   errors,
 }) => {
@@ -74,8 +76,11 @@ const QuestionAndAnswer = ({
         <button className="record-button" onClick={toggleTranscription}>
           {`🎤 ${isRecording ? "Stop Recording" : "Start Recording"}`}
         </button>
-        <button className="next-button" onClick={onHandleNextQuestion}>
-          ⏭️ Next
+        <button
+          className="next-button"
+          onClick={isLastQuestion ? onHandleEndInterview : onHandleNextQuestion}
+        >
+          {`⏭️ ${isLastQuestion ? "End" : "Next"}`}
         </button>
       </div>
     </div>
