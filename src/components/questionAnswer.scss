@@ -32,5 +32,65 @@
       padding: 7px 25px;
       background: #f8da95;
     }
+
+    .dialogue-desktop {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+
+      img {
+        position: absolute;
+        bottom: 0px;
+        left: -50px;
+        animation: floating 3s ease-in-out infinite;
+      }
+
+      .dialogue-bubble {
+        position: absolute;
+        bottom: 90px;
+        left: 230px;
+        height: fit-content;
+        width: auto;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        border-image-source: url("data:image/svg+xml;utf8,<svg version='1.1' width='8' height='8' xmlns='http://www.w3.org/2000/svg'><path d='M3 1 h1 v1 h-1 z M4 1 h1 v1 h-1 z M2 2 h1 v1 h-1 z M5 2 h1 v1 h-1 z M1 3 h1 v1 h-1 z M6 3 h1 v1 h-1 z M1 4 h1 v1 h-1 z M6 4 h1 v1 h-1 z M2 5 h1 v1 h-1 z M5 5 h1 v1 h-1 z M3 6 h1 v1 h-1 z M4 6 h1 v1 h-1 z' fill='%23212529' /></svg>");
+        border-image-slice: 3;
+        border-image-width: 3;
+        border-image-repeat: stretch;
+        border-image-outset: 2;
+        display: inline-block;
+        margin: 8px 30px 30px 0px;
+        background-color: #fff;
+        border-style: solid;
+        border-width: 4px;
+
+        &::before,
+        &:after {
+          position: absolute;
+          content: "";
+          box-sizing: border-box;
+          background-color: #fff;
+          left: 2rem;
+        }
+
+        &::before {
+          bottom: -14px;
+          width: 26px;
+          height: 10px;
+          border-right: 4px solid #212529;
+          border-left: 4px solid #212529;
+        }
+
+        &:after {
+          bottom: -18px;
+          width: 18px;
+          height: 4px;
+          margin-right: 8px;
+          color: #212529;
+          box-shadow: -4px 0, 4px 0, -4px 4px #fff, 0 4px, -8px 4px, -4px 8px,
+            -8px 8px;
+        }
+      }
+    }
   }
 }
