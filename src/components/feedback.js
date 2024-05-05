@@ -24,51 +24,65 @@ const Feedback = ({ chat, question, errors, originalResponse }) => {
 
   return (
     <div className="feedback">
-      <p>
-        <span>Question:</span> {question}
-      </p>
-      <p>
-        <span>Feedback:</span>
-      </p>
-      <div className="white_box">
-        <div className="tag_box">
-          <Tags
-            text={`${errors?.grammar ? "❌" : "✅"} Grammar`}
-            color={`${errors?.grammar ? "#F6CFCD" : "#E0E9E1"}`}
-          />
-          <Tags
-            text={`${errors?.tense ? "❌" : "✅"} Tense`}
-            color={`${errors?.tense ? "#F6CFCD" : "#E0E9E1"}`}
-          />
-          <Tags
-            text={`${errors?.repetition ? "❌" : "✅"} Repetition`}
-            color={`${errors?.repetition ? "#F6CFCD" : "#E0E9E1"}`}
-          />
-        </div>
-
-        {errors?.stutters ? (
+      {false ? (
+        <div className="loading">
           <p>
-            <span>Stutters:</span> You said “um” or “uh”{" "}
-            <span className="red_underline">{`${errors.stutters || "0"}`}</span>{" "}
-            time(s) during the response.{" "}
+            <span>Evaluating...</span>
+            <br />
+            Mr. Goose will be with you in a moment
           </p>
-        ) : (
-          <p>Hooray! You were fluent all throughout!</p>
-        )}
-      </div>
-      <p>
-        <span>Improved Response:</span> {chat}
-      </p>
-      <p>
-        <span>Original Response:</span> {originalResponse}
-      </p>
-      <div className="yellow_box">
-        <p>
-          <span>View Tips and Tricks</span>
-        </p>
-      </div>
-      {audioSrc && (
-        <audio style={{ display: "none" }} controls autoPlay src={audioSrc} />
+        </div>
+      ) : (
+        <div>
+          <p>
+            <span>Question:</span> {question}
+          </p>
+          <p>
+            <span>Feedback:</span>
+          </p>
+          <div className="white_box">
+            <div className="tag_box">
+              <Tags
+                text={`${errors?.grammar ? "❌" : "✅"} Grammar`}
+                color={`${errors?.grammar ? "#F6CFCD" : "#E0E9E1"}`}
+              />
+              <Tags
+                text={`${errors?.tense ? "❌" : "✅"} Tense`}
+                color={`${errors?.tense ? "#F6CFCD" : "#E0E9E1"}`}
+              />
+              <Tags
+                text={`${errors?.repetition ? "❌" : "✅"} Repetition`}
+                color={`${errors?.repetition ? "#F6CFCD" : "#E0E9E1"}`}
+              />
+            </div>
+
+            {errors?.stutters ? (
+              <p>
+                <span>Stutters:</span> You said “um” or “uh”{" "}
+                <span className="red_underline">{`${
+                  errors.stutters || "0"
+                }`}</span>{" "}
+                time(s) during the response.{" "}
+              </p>
+            ) : (
+              <p>Hooray! You were fluent all throughout!</p>
+            )}
+          </div>
+          <p>
+            <span>Improved Response:</span> {chat}
+          </p>
+          <p>
+            <span>Original Response:</span> {originalResponse}
+          </p>
+          {audioSrc && (
+            <audio
+              style={{ display: "none" }}
+              controls
+              autoPlay
+              src={audioSrc}
+            />
+          )}
+        </div>
       )}
     </div>
   );
