@@ -7,7 +7,7 @@ export default function Navbar() {
         <div>
           <a href={`/`} class="flex items-center text-black font-bold text-lg">
             <img src={Logo} alt="logo" className="h-16 w-16 mr-2" />
-            <span>Quack Prep</span>
+            <span>QuackPrep</span>
           </a>
         </div>
         <div>

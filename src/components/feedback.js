@@ -7,8 +7,8 @@ const Feedback = ({ chat, question, errors, originalResponse }) => {
   const [audioSrc, setAudioSrc] = useState(null);
 
   useEffect(() => {
-    handleSynthesize(chat);
-  }, [chat]);
+    handleSynthesize(question);
+  }, [question]);
 
   const handleSynthesize = async (text) => {
     try {

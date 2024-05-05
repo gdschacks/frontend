@@ -88,7 +88,3 @@ const QuestionAndAnswer = ({
 };
 
 export default QuestionAndAnswer;
-
-{
-  /* <p>{question}</p> */
-}
