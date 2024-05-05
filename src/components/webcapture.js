@@ -47,14 +47,9 @@ function WebcamCapture({ handleChangeEmotion }) {
           const expressions = detections.expressions;
           const highestExpression = expressions.asSortedArray()[0]; // Get the most likely expression
           handleChangeEmotion(highestExpression.expression);
-          console.log(
-            `Detected expression: ${
-              highestExpression.expression
-            }, Score: ${highestExpression.probability.toFixed(2)}`
-          );
         }
       }
-    }, 3000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);

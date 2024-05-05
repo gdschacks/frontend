@@ -24,15 +24,7 @@ const Feedback = ({ chat, question, errors, originalResponse }) => {
 
   return (
     <div className="feedback">
-      {false ? (
-        <div className="loading">
-          <p>
-            <span>Evaluating...</span>
-            <br />
-            Mr. Goose will be with you in a moment
-          </p>
-        </div>
-      ) : (
+      {chat.length ? (
         <div>
           <p>
             <span>Question:</span> {question}
@@ -51,7 +43,7 @@ const Feedback = ({ chat, question, errors, originalResponse }) => {
                 color={`${errors?.tense ? "#F6CFCD" : "#E0E9E1"}`}
               />
               <Tags
-                text={`${errors?.repetition ? "❌" : "✅"} Repetition`}
+                text={`${errors?.repetition ? "❌" : "✅"} No Repetition`}
                 color={`${errors?.repetition ? "#F6CFCD" : "#E0E9E1"}`}
               />
             </div>
@@ -65,7 +57,7 @@ const Feedback = ({ chat, question, errors, originalResponse }) => {
                 time(s) during the response.{" "}
               </p>
             ) : (
-              <p>Hooray! You were fluent all throughout!</p>
+              <p>Hooray! You were fluent all throughout 🙌!</p>
             )}
           </div>
           <p>
@@ -74,15 +66,18 @@ const Feedback = ({ chat, question, errors, originalResponse }) => {
           <p>
             <span>Original Response:</span> {originalResponse}
           </p>
-          {audioSrc && (
-            <audio
-              style={{ display: "none" }}
-              controls
-              autoPlay
-              src={audioSrc}
-            />
-          )}
         </div>
+      ) : (
+        <div className="loading">
+          <p>
+            <span>Speak whenever you're ready!</span>
+            <br />
+            Mr. Goose will soon be ready with your results...
+          </p>
+        </div>
+      )}
+      {audioSrc && (
+        <audio style={{ display: "none" }} controls autoPlay src={audioSrc} />
       )}
     </div>
   );

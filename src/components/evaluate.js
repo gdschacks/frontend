@@ -78,7 +78,6 @@ const Evaluate = ({
           "Content-Type": "application/json",
         },
       };
-      console.log(options);
       const response = await fetch("http://localhost:8080/gemini", options);
       const data = await response.text();
       console.log("gemini error feedback", data);

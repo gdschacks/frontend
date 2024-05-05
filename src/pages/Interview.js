@@ -10,7 +10,6 @@ export default function Interview() {
   const location = useLocation();
   const navigate = useNavigate();
   const receivedState = location.state;
-  console.log(receivedState);
   const [chatHistory, setChatHistory] = useState([]);
   const [currQIndex, setCurrQIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
@@ -38,6 +37,7 @@ export default function Interview() {
   };
 
   const handleNextQuestion = () => {
+    setFeedback("");
     setCurrQIndex(currQIndex + 1);
   };
 

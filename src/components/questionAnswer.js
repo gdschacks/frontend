@@ -17,8 +17,6 @@ const QuestionAndAnswer = ({
   const socketRef = useRef(null);
   const [emotion, setEmotion] = useState("neutral");
 
-  console.log(emotion);
-
   useEffect(() => {
     if (!socketRef.current) {
       socketRef.current = io("http://localhost:8080");
