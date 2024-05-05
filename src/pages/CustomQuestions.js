@@ -3,7 +3,11 @@ import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 
 export default function CustomQuestions() {
-  const [inputFields, setInputFields] = useState([{ value: "" }]);
+  const [inputFields, setInputFields] = useState([
+    { value: "Tell me about yourself" },
+    { value: "Why do you want to work at our company?" },
+    { value: "" },
+  ]);
 
   const handleAddInput = () => {
     setInputFields([...inputFields, { value: "" }]);
