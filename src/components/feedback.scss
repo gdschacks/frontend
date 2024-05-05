@@ -1,9 +1,5 @@
 .feedback {
-  position: absolute;
-  right: 0;
-  top: 70px;
-  width: 30%;
-  margin: 20px;
+  width: 30vw;
 
   padding: 20px 20px 50px 20px;
   background-color: #c2e2f0;
@@ -12,6 +8,7 @@
     font-family: "Montserrat", sans-serif;
     font-size: 17px;
     padding-bottom: 20px;
+
     span {
       font-weight: 600;
     }
@@ -22,7 +19,7 @@
   }
   .white_box {
     border-radius: 20px;
-    height: 20vh;
+    height: 22vh;
     align-items: center;
     background-color: white;
     margin-bottom: 20px;
@@ -34,6 +31,7 @@
     }
     p {
       margin-top: 20px;
+      margin-left: 10px;
     }
   }
   .yellow_box {

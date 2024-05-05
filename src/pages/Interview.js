@@ -3,13 +3,20 @@ import Evaluate from "../components/evaluate";
 import QuestionAndAnswer from "../components/questionAnswer";
 import Feedback from "../components/feedback";
 import Navbar from "../components/Navbar";
+import "./Interview.scss";
 
 export default function Interview() {
   const [chatHistory, setChatHistory] = useState([]);
   const [currQIndex, setCurrQIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
+  const [userResponse, setUserResponse] = useState("");
   const [feedback, setFeedback] = useState("");
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    grammar: false,
+    tense: false,
+    repetition: false,
+    stutters: 0,
+  });
   const [questions, setQuestions] = useState([
     "Hello, tell me about yourself?",
     "Tell me about a time you solved a conflict.",
@@ -33,7 +40,7 @@ export default function Interview() {
   };
 
   return (
-    <div className="App">
+    <div className="interview-container">
       <Navbar />
       {/* gets transcriptions */}
       {/* <SpeechToText onTranscriptionsChange={handleTranscriptionsChange} /> */}
@@ -46,14 +53,22 @@ export default function Interview() {
         onUpdate={handleChatUpdate}
         onFeedbackUpdate={handleFeedbackUpdate}
         onErrorEvaluation={setErrors}
+        onFormatUserResponse={setUserResponse}
       />
-      <QuestionAndAnswer
-        question={questions[currQIndex]}
-        onHandleNextQuestion={handleNextQuestion}
-        onTranscriptionsChange={handleTranscriptionsChange}
-        errors={errors}
-      />
-      <Feedback chat={feedback} />
+      <div className="main-container">
+        <QuestionAndAnswer
+          question={questions[currQIndex]}
+          onHandleNextQuestion={handleNextQuestion}
+          onTranscriptionsChange={handleTranscriptionsChange}
+          errors={errors}
+        />
+        <Feedback
+          question={questions[currQIndex]}
+          chat={feedback}
+          errors={errors}
+          originalResponse={userResponse}
+        />
+      </div>
     </div>
   );
 }

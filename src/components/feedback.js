@@ -3,7 +3,7 @@ import axios from "axios";
 import "./feedback.scss";
 import Tags from "./Tags";
 
-const Feedback = ({ chat }) => {
+const Feedback = ({ chat, question, errors, originalResponse }) => {
   const [audioSrc, setAudioSrc] = useState(null);
 
   useEffect(() => {
@@ -25,34 +25,42 @@ const Feedback = ({ chat }) => {
   return (
     <div className="feedback">
       <p>
-        <span>Question:</span> Tell me about yourself.
+        <span>Question:</span> {question}
       </p>
       <p>
         <span>Feedback:</span>
       </p>
       <div className="white_box">
         <div className="tag_box">
-          <Tags text="✅ Grammar" color="#E0E9E1" />
-          <Tags text="❌ Tense" color="#F6CFCD" />
-          <Tags text="✅ Repetition" color="#E0E9E1" />
+          <Tags
+            text={`${errors?.grammar ? "❌" : "✅"} Grammar`}
+            color={`${errors?.grammar ? "#F6CFCD" : "#E0E9E1"}`}
+          />
+          <Tags
+            text={`${errors?.tense ? "❌" : "✅"} Tense`}
+            color={`${errors?.tense ? "#F6CFCD" : "#E0E9E1"}`}
+          />
+          <Tags
+            text={`${errors?.repetition ? "❌" : "✅"} Repetition`}
+            color={`${errors?.repetition ? "#F6CFCD" : "#E0E9E1"}`}
+          />
         </div>
 
-        <p>
-          <span>Stutter:</span> You said “um” or “uh”{" "}
-          <span className="red_underline">thrice</span> during the interview.{" "}
-        </p>
+        {errors?.stutters ? (
+          <p>
+            <span>Stutters:</span> You said “um” or “uh”{" "}
+            <span className="red_underline">{`${errors.stutters || "0"}`}</span>{" "}
+            time(s) during the response.{" "}
+          </p>
+        ) : (
+          <p>Hooray! You were fluent all throughout!</p>
+        )}
       </div>
       <p>
-        <span>Improved Response:</span> Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Original Respone: Duis aute irure dolor in reprehenderit
-        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        <span>Improved Response:</span> {chat}
       </p>
       <p>
-        <span>Original Response:</span> Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Original Respone: Duis aute irure dolor in reprehenderit
-        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        <span>Original Response:</span> {originalResponse}
       </p>
       <div className="yellow_box">
         <p>
@@ -62,16 +70,6 @@ const Feedback = ({ chat }) => {
       {audioSrc && (
         <audio style={{ display: "none" }} controls autoPlay src={audioSrc} />
       )}
-
-      {/* {chat.map((chat, index) => {
-        return (
-          <div key={index}>
-            <p>{chat.parts[0].text}</p>
-          </div>
-        );
-      })} */}
-      {chat.length ? <p>{chat}</p> : null}
-     
     </div>
   );
 };

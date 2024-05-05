@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { io } from "socket.io-client";
 import WebcamCapture from "./webcapture";
+import { EMOTIONS } from "../constant";
 import "./questionAnswer.scss";
 
 const QuestionAndAnswer = ({
@@ -12,6 +13,9 @@ const QuestionAndAnswer = ({
   const [transcriptions, setTranscriptions] = useState([]);
   const [isRecording, setIsRecording] = useState(false);
   const socketRef = useRef(null);
+  const [emotion, setEmotion] = useState("neutral");
+
+  console.log(emotion);
 
   useEffect(() => {
     if (!socketRef.current) {
@@ -62,9 +66,11 @@ const QuestionAndAnswer = ({
 
   return (
     <div className="video-and-controls">
-      <WebcamCapture />
+      <WebcamCapture handleChangeEmotion={setEmotion} />
       <div className="controls">
-        <p>{`Detected Emotion: 😐 Neutral`}</p>
+        <p>{`Detected Emotion: ${EMOTIONS[emotion]} ${
+          emotion.charAt(0).toUpperCase() + emotion.slice(1)
+        }`}</p>
         <button className="record-button" onClick={toggleTranscription}>
           {`🎤 ${isRecording ? "Stop Recording" : "Start Recording"}`}
         </button>

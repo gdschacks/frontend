@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import * as faceapi from "face-api.js";
 import "./webcapture.scss";
 
-function WebcamCapture() {
+function WebcamCapture({ handleChangeEmotion }) {
   const videoRef = useRef();
 
   useEffect(() => {
@@ -46,24 +46,15 @@ function WebcamCapture() {
         if (detections) {
           const expressions = detections.expressions;
           const highestExpression = expressions.asSortedArray()[0]; // Get the most likely expression
+          handleChangeEmotion(highestExpression.expression);
           console.log(
             `Detected expression: ${
               highestExpression.expression
             }, Score: ${highestExpression.probability.toFixed(2)}`
           );
         }
-        // canvasRef.current.innerHTML = faceapi.createCanvasFromMedia(
-        //   videoRef.current
-        // );
-        // faceapi.matchDimensions(canvasRef.current, { width: 720, height: 560 });
-        // const resizedDetections = faceapi.resizeResults(detections, {
-        //   width: 720,
-        //   height: 560,
-        // });
-        // faceapi.draw.drawDetections(canvasRef.current, resizedDetections);
-        // faceapi.draw.drawFaceExpressions(canvasRef.current, resizedDetections);
       }
-    }, 100);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
